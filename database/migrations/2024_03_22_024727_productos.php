@@ -20,8 +20,7 @@ return new class extends Migration
             $table->string('modelo', 50);
             $table->text('especificaciones_tecnicas');
             $table->string('imagen', 50);
-            $table->foreignId('marca_id')->constrained('marca')->onDelete('cascade');
-            $table->foreignId('categoria_id')->constrained('categoria')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('productos');
     }
 };

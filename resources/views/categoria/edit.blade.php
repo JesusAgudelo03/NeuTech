@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ __('Update') }} Categorium
+    {{ __('Update') }} Categoria
 @endsection
 
 @section('content')
@@ -9,18 +9,16 @@
         <div class="">
             <div class="col-md-12">
 
-                @includeif('partials.errors')
-
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Categorium</span>
+                        <span class="card-title">{{ __('Update') }} Categoria</span>
                     </div>
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('categoria.update', $categorium->id) }}"  role="form" enctype="multipart/form-data">
+                    <div class="card-body bg-white">
+                        <form method="POST" action="{{ route('categorias.update', $categoria->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('categorium.form')
+                            @include('categoria.form')
 
                         </form>
                     </div>

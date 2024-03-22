@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Marca;
-use Illuminate\Http\Request;
+use App\Http\Requests\MarcaRequest;
 
 /**
  * Class MarcaController
@@ -13,8 +13,6 @@ class MarcaController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -26,8 +24,6 @@ class MarcaController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -37,15 +33,10 @@ class MarcaController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MarcaRequest $request)
     {
-        request()->validate(Marca::$rules);
-
-        $marca = Marca::create($request->all());
+        Marca::create($request->validated());
 
         return redirect()->route('marcas.index')
             ->with('success', 'Marca created successfully.');
@@ -53,9 +44,6 @@ class MarcaController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
@@ -66,9 +54,6 @@ class MarcaController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
@@ -79,29 +64,18 @@ class MarcaController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  Marca $marca
-     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Marca $marca)
+    public function update(MarcaRequest $request, Marca $marca)
     {
-        request()->validate(Marca::$rules);
-
-        $marca->update($request->all());
+        $marca->update($request->validated());
 
         return redirect()->route('marcas.index')
             ->with('success', 'Marca updated successfully');
     }
 
-    /**
-     * @param int $id
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
-     */
     public function destroy($id)
     {
-        $marca = Marca::find($id)->delete();
+        Marca::find($id)->delete();
 
         return redirect()->route('marcas.index')
             ->with('success', 'Marca deleted successfully');

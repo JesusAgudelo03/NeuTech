@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Categorium
+    Categoria
 @endsection
 
 @section('content')
@@ -13,23 +13,23 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Categorium') }}
+                                {{ __('Categoria') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('categoria.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('categorias.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
+                        <div class="alert alert-success m-4">
                             <p>{{ $message }}</p>
                         </div>
                     @endif
 
-                    <div class="card-body">
+                    <div class="card-body bg-white">
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
@@ -42,16 +42,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($categoria as $categorium)
+                                    @foreach ($categorias as $categoria)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $categorium->nombre }}</td>
+											<td>{{ $categoria->nombre }}</td>
 
                                             <td>
-                                                <form action="{{ route('categoria.destroy',$categorium->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('categoria.show',$categorium->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('categoria.edit',$categorium->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                <form action="{{ route('categorias.destroy',$categoria->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('categorias.show',$categoria->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('categorias.edit',$categoria->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
@@ -64,7 +64,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $categoria->links() !!}
+                {!! $categorias->links() !!}
             </div>
         </div>
     </div>

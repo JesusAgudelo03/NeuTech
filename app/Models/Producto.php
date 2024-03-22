@@ -15,12 +15,13 @@ use Illuminate\Database\Eloquent\Model;
  * @property $modelo
  * @property $especificaciones_tecnicas
  * @property $imagen
+ * @property $nombre2
  * @property $marca_id
  * @property $categoria_id
  * @property $created_at
  * @property $updated_at
  *
- * @property Categorium $categorium
+ * @property Categoria $categoria
  * @property Marca $marca
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
@@ -28,17 +29,6 @@ use Illuminate\Database\Eloquent\Model;
 class Producto extends Model
 {
     
-    static $rules = [
-		'nombre' => 'required|string',
-		'descripcion' => 'required|string',
-		'precio' => 'required',
-		'cantidad_stock' => 'required',
-		'modelo' => 'required|string',
-		'especificaciones_tecnicas' => 'required|string',
-		'imagen' => 'required|string',
-		'marca_id' => 'required',
-		'categoria_id' => 'required',
-    ];
 
     protected $perPage = 20;
 
@@ -47,15 +37,15 @@ class Producto extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre','descripcion','precio','cantidad_stock','modelo','especificaciones_tecnicas','imagen','marca_id','categoria_id'];
+    protected $fillable = ['nombre', 'descripcion', 'precio', 'cantidad_stock', 'modelo', 'especificaciones_tecnicas', 'imagen', 'nombre2', 'marca_id', 'categoria_id'];
 
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function categorium()
+    public function categoria()
     {
-        return $this->belongsTo(\App\Models\Categorium::class, 'categoria_id', 'id');
+        return $this->belongsTo(\App\Models\Categoria::class, 'categoria_id', 'id');
     }
     
     /**

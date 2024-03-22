@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Marca
+ * Class Categoria
  *
  * @property $id
  * @property $nombre
@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Marca extends Model
+class Categoria extends Model
 {
     
 
@@ -35,7 +35,7 @@ class Marca extends Model
      */
     public function productos()
     {
-        return $this->hasMany(\App\Models\Producto::class, 'id', 'marca_id');
+        return $this->hasMany(\App\Models\Producto::class, 'id', 'categoria_id');
     }
     
 

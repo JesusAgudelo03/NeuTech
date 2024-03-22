@@ -2,26 +2,8 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <div style="margin-bottom: 50px">
+<div style="margin-bottom: 50px">
     <h1 style=" color:white">NeuTech</h1>
     <p style="color:white">Explora el universo de la tecnología informática con NeuTech. Encuentra componentes de última generación para potenciar tu experiencia digital. ¡Descubre nuestra amplia selección hoy mismo!</p>
 </div>
@@ -34,7 +16,7 @@
       <img src="https://dlcdnwebimgs.asus.com/gain/E06E359D-97C0-48B7-9864-8D399715839A" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="https://dlcdnwebimgs.asus.com/gain/E06E359D-97C0-48B7-9864-8D399715839A" class="d-block w-100" alt="...">
+      <img src="https://dlcdnwebimgs.asus.com/gain/CEFFC149-0C07-4C1E-B947-11568B23B620" class="d-block w-100" alt="...">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
